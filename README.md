@@ -10,7 +10,7 @@ GitHub is a web-based version-control and collaboration platform for software de
 To reach any github repository, you need to follow these simple steps:
 
 1. Enter the github repository's URL in the address bar and then search, you will be on the github repository.
-2. Any github URL is of the form: https://github.com/<user-name>/<repository-name>
+2. Any github URL is of the form: github.com/<user-name>/<repository-name>
 3. So you can reach any github repository by knowing the username of the repository's owner and the name of the repository.
 
 
