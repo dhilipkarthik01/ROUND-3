@@ -5,6 +5,7 @@ import tkinter.font as tkFont
 from tkinter import filedialog
 import os, shutil
 import PIL.Image
+import webbrowser
 
 
 class Root(Tk):
@@ -19,14 +20,17 @@ class Root(Tk):
         self.labelFrame.place(anchor="nw",x=50,y=50,width=800, height=550)
         self.configure(bg='black')
         self.label = tk.Label(self.labelFrame, text="",font=fontStyle,bg='#0ff0fc',fg='#fe01b1')
+        self.labelc = tk.Label(self.labelFrame, text="",font=fontStyle,bg='#0ff0fc',fg='#fc0f0f')
         self.label.grid(column =1,row = 2)
+        self.labelc.grid(column =1,row = 100)
         pholder="\"Not all treasure is silver and gold, mate.\"\n   - Jack Sparrow"
         self.label.configure(text =pholder)
+        #self.label.bind("<Button-1>", lambda e: webbrowser.open_new_tab("http://www.tutorialspoint.com"))
 
     def btton(self):
-        self.button = tk.Button(self.labelFrame, text="Upload",height=2,width=10,command=self.fileDailog,bg="#21fc0d",fg='#033500')
+        self.button = tk.Button(self.labelFrame, text="Upload Image",height=2,width=15,command=self.fileDailog,bg="#21fc0d",fg='#033500')
         self.button.grid(column=1,row=1)
-        self.button.grid(padx=375,pady=70)
+        self.button.grid(padx=350,pady=70)
     def fileDailog(self):
         self.fileName = filedialog.askopenfilename(initialdir = "/", title="Select A File",filetype=(("png","*.png"),("jpeg","*.jpg")))
         #self.label = tk.Label(self.labelFrame, text="",bg='#0ff0fc',fg='#ff003f')
@@ -50,8 +54,10 @@ class Root(Tk):
 
                 data += chr(int(binstr, 2))
                 if (pixels[-1] % 2 != 0):
-                        print(data)
+                        #print(data)
                         self.label.configure(text = data)
+                        self.label.bind("<Button-1>", lambda e: webbrowser.open_new_tab(data))
+                        self.labelc.configure(text = "***PLEASE CLICK THE ABOVE LINK***")
                         #self.label.configure(text = x[0:10]+"\n"+x[10:20]+"\n"+x[20:30]+"\n"+x[30:40]+"\n"+x[40:50]+"\n")
                         break
 
